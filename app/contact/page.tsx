@@ -12,8 +12,8 @@ const contactInfo = [
       </svg>
     ),
     title: "Phone",
-    value: "(555) 123-4567",
-    link: "tel:+15551234567"
+    value: "619 315 5836",
+    link: "tel:+16193155836"
   },
   {
     icon: (
@@ -243,7 +243,7 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                         className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-lime focus:outline-none transition-colors"
-                        placeholder="(555) 123-4567"
+                        placeholder="619 315 5836"
                       />
                     </div>
                     <div>
@@ -303,7 +303,7 @@ export default function ContactPage() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/15551234567"
+        href="https://wa.me/6193155836"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all z-50 group"

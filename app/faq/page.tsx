@@ -155,7 +155,7 @@ export default function FAQPage() {
                   Contact Us
                 </Link>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+16193155836"
                   className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-bold px-8 py-4 rounded-full border border-white/20 hover:bg-white/20 transition-all"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
