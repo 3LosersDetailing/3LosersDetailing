@@ -44,7 +44,7 @@ const contactInfo = [
       </svg>
     ),
     title: "Service Area",
-    value: "San  & Surrounding Areas",
+    value: "San Diego & Surrounding Areas",
     link: null
   }
 ]
