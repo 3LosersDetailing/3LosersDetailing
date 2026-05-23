@@ -91,7 +91,7 @@ export function Navbar() {
       className="flex items-center gap-2 text-sm text-white/80 hover:text-lime transition-colors"
     >
       <Phone className="w-4 h-4" />
-      <span>619 315 5836</span>
+      <span>+1 619 315 5836</span>
     </a>
 
     <Link

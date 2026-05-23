@@ -13,7 +13,7 @@ const contactInfo = [
       </svg>
     ),
     title: "Phone",
-    value: "619 315 5836",
+    value: "+1 619 315 5836",
     link: "tel:+16193155836"
   },
   {
@@ -269,7 +269,7 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                         className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-lime focus:outline-none transition-colors"
-                        placeholder="619 315 5836"
+                        placeholder="+1 619 315 5836"
                       />
                     </div>
                     <div>

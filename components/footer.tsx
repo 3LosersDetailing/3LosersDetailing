@@ -145,7 +145,7 @@ export function Footer() {
               <li>
                 <a href="tel:+1 6193155836" className="text-white/60 hover:text-lime transition-colors duration-300 text-sm flex items-start gap-3">
                   <Phone className="w-4 h-4 mt-0.5 text-lime" />
-                  619 315 5836  
+                  +1 619 315 5836  
                 </a>
               </li>
 
