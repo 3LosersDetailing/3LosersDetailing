@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import emailjs from "@emailjs/browser"
 
 const contactInfo = [
   {
@@ -91,10 +92,35 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsSuccess(true)
-    setIsSubmitting(false)
+  
+    try {
+      await emailjs.send(
+        "service_l72hp0j",
+        "template_mrkovt1",
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "uHWTsB3gShoBSwuxc"
+      )
+  
+      setIsSuccess(true)
+  
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      })
+  
+    } catch (error) {
+      console.error(error)
+      alert("Failed to send message")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import emailjs from "@emailjs/browser"
 
 const services = [
   { name: "Regular Wash", price: "$150" },
@@ -47,23 +48,50 @@ export default function BookingPage() {
     e.preventDefault()
     setIsSubmitting(true)
     setError("")
-
+  
     try {
-      const response = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to submit booking")
-      }
-
+      await emailjs.send(
+        "service_l72hp0j", // YOUR EMAILJS SERVICE ID
+        "template_wx47p27", // YOUR TEMPLATE ID
+        {
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          address: formData.address,
+          city: formData.city,
+          zipCode: formData.zipCode,
+          vehicleMake: formData.vehicleMake,
+          vehicleModel: formData.vehicleModel,
+          vehicleYear: formData.vehicleYear,
+          service: formData.service,
+          appointmentDate: formData.appointmentDate,
+          appointmentTime: formData.appointmentTime,
+          notes: formData.notes,
+        },
+        "uHWTsB3gShoBSwuxc" // YOUR EMAILJS PUBLIC KEY
+      )
+  
       setIsSuccess(true)
+  
+      setFormData({
+        fullName: "",
+        phone: "",
+        email: "",
+        address: "",
+        city: "",
+        zipCode: "",
+        vehicleMake: "",
+        vehicleModel: "",
+        vehicleYear: "",
+        service: "",
+        appointmentDate: "",
+        appointmentTime: "",
+        notes: ""
+      })
+  
     } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred")
+      console.error(err)
+      setError("Failed to send booking")
     } finally {
       setIsSubmitting(false)
     }
